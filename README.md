@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Mentor - Product list with cart solution
 
-## Getting Started
+This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Overview](https://www.google.com/search?q=%23overview)
+  - [The challenge](https://www.google.com/search?q=%23the-challenge)
+  - [Screenshot](https://www.google.com/search?q=%23screenshot)
+  - [Links](https://www.google.com/search?q=%23links)
+- [My process](https://www.google.com/search?q=%23my-process)
+  - [Built with](https://www.google.com/search?q=%23built-with)
+  - [What I learned](https://www.google.com/search?q=%23what-i-learned)
+  - [Continued development](https://www.google.com/search?q=%23continued-development)
+  - [Useful resources](https://www.google.com/search?q=%23useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- Add items to the cart and remove them
+- Increase/decrease the number of items in the cart
+- See an order confirmation modal when they click "Confirm Order"
+- Reset their selections when they click "Start New Order"
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+
+### Screenshot
+
+_(Remember to replace this with your own screenshot\!)_
+
+### Links
+
+- Solution URL: [Add your solution URL here](https://www.frontendmentor.io/solutions)
+- Live Site URL: [Desert Cart](https://product-lisk.vercel.app/)
+
+---
+
+## My process
+
+### Built with
+
+- **Next.js** - React framework for server-side rendering and routing.
+- **React** - JavaScript library for building user interfaces.
+- **Tailwind CSS v4** - A utility-first CSS framework for rapid styling.
+- **TypeScript** - For strong typing and improved developer experience.
+- **Semantic HTML5 markup** - For better accessibility and SEO.
+- **CSS Flexbox & Grid** - For creating complex and responsive layouts.
+- **Mobile-first workflow** - Core principle for building responsive designs.
+
+### What I learned
+
+This project was a great opportunity to practice component-based architecture, state management, and modern CSS techniques. Here are some of the key things I learned:
+
+#### Responsive Images with Art Direction
+
+Instead of using a single image for all screen sizes, I learned to use the HTML `<picture>` element to serve different, art-directed images based on the viewport width. This ensures the best-looking and most performant image is loaded for every device.
+
+```html
+<picture>
+  <source media="(min-width: 1024px)" srcset="{product.image.desktop}" />
+  <source media="(min-width: 640px)" srcset="{product.image.tablet}" />
+  <image
+    src="{product.image.mobile}"
+    alt="{product.name}"
+    width="{240}"
+    height="{240}"
+    className="w-full aspect-square object-cover"
+  />
+</picture>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Component Refactoring and Data Flow
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I focused on making my components clean and reusable. Initially, I had hardcoded lookup functions inside my components to find image paths. I refactored this by passing the complete product data via props, making the components more declarative and easier to maintain.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For example, instead of this:
+`src={getProductThumbnailSrc(item.name)}`
 
-## Learn More
+I now pass the data directly:
+`src={item.image.thumbnail}`
 
-To learn more about Next.js, take a look at the following resources:
+This makes the `OrderConfirmationModal` and `Cart` components much cleaner.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Centralized State Management with Custom Hooks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To handle the shopping cart logic, I created a custom `useCart` hook. This hook encapsulates all the logic for adding, removing, and updating items in the cart. It made the state management clean and accessible to any component that needed it without prop drilling.
 
-## Deploy on Vercel
+#### Custom Theming in Tailwind CSS v4
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I define a custom color palette directly in my `global.css` file using the new `@theme` directive in Tailwind CSS v4. This allows for creating semantic and reusable color classes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```css
+@theme {
+  --color-red: hsl(14 86% 42%);
+  --color-green: hsl(159 69% 38%);
+  --color-rose-50: hsl(20 50% 98%);
+  --color-rose-900: hsl(14 65% 9%);
+}
+```
+
+### Continued development
+
+In future projects, I want to continue focusing on:
+
+- **Testing:** Implementing unit and integration tests with Jest and React Testing Library to ensure the application is robust and bug-free.
+- **Animations:** Adding subtle page transitions and micro-interactions using a library like Framer Motion to improve the user experience.
+- **Accessibility:** Going beyond semantic HTML to conduct full accessibility audits and ensure the site is usable for everyone.
+
+### Useful resources
+
+- [Next.js Documentation](https://nextjs.org/docs) - This was my go-to resource for everything related to Next.js, from routing to image optimization.
+- [React Documentation](https://react.dev/) - The new React docs are fantastic for understanding hooks and modern React patterns.
+- [MDN `<picture>` Element Guide](<https://www.google.com/search?q=%5Bhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture%5D(https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)>) - This article provided a clear explanation of how to implement art direction for responsive images.
+
+---
+
+## Author
+
+- Website - [Dorcas Solution](https://product-lisk.vercel.app/)
+- Frontend Mentor - [@portableDD](https://www.frontendmentor.io/profile/portableDD)
+- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+
+## Acknowledgments
+
+A big thank you to the Frontend Mentor community for the challenge.
