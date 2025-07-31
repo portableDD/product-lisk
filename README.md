@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add your solution URL here](https://www.frontendmentor.io/solutions)
+- Solution URL: [frontendmentor]([https://www.frontendmentor.io/solutions](https://www.frontendmentor.io/solutions/responsive-product-cart-with-nextjs-react-and-tailwind-css-3rdCfe3Y7))
 - Live Site URL: [Desert Cart](https://product-lisk.vercel.app/)
 
 ---
