@@ -4,15 +4,14 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 
 ## Table of contents
 
-- [Overview](https://www.google.com/search?q=%23overview)
-  - [The challenge](https://www.google.com/search?q=%23the-challenge)
-  - [Screenshot](https://www.google.com/search?q=%23screenshot)
-  - [Links](https://www.google.com/search?q=%23links)
-- [My process](https://www.google.com/search?q=%23my-process)
-  - [Built with](https://www.google.com/search?q=%23built-with)
-  - [What I learned](https://www.google.com/search?q=%23what-i-learned)
-  - [Continued development](https://www.google.com/search?q=%23continued-development)
-  - [Useful resources](https://www.google.com/search?q=%23useful-resources)
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -29,9 +28,6 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Screenshot
-
-_(Remember to replace this with your own screenshot\!)_
 
 ### Links
 
